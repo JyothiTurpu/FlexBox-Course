@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FlexBox Capstone Project</title>
+  <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fontawesome/css/all.css">
+
+
+  <style>
+    body {
+      margin: 0px;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation-wrapper {
+      height: 40px;
+      width: 100%;
+      background-color: yellowgreen;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo,.name{
+      flex-basis: 15vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+    }
+
+
+    .toggle {
+      display: none;
+    }
+
+    .logo:hover {
+      cursor: pointer;
+    }
+
+    .links {
+      height: 40px;
+      flex-basis: 85vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+    .link {
+      height: 40px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: goldenrod;
+    }
+
+    .link:hover, .decprops:hover, .name:hover, .link:hover a, .name:hover a{
+      cursor: pointer;
+      background-color: green;
+      color: black;
+    }
+
+    .group {
+      display: flex;
+    }
+
+    .decprops {
+      color: white;
+      text-decoration: none;
+    }
+
+    @media (max-width: 48em) {
+
+              .links {
+              display: none;
+              }             
+
+              .toggle {
+                display: inline;
+                /* width: 2.5vw; */
+              }
+
+              .toggle a{
+                color: white;
+              }
+              
+              .navigation-wrapper{
+                  /* padding: 0px 0px; */
+                  /* justify-content: space-between; */
+                  /* align-items: flex-start; */
+                  flex-direction: column;
+              }
+
+              .name:hover, .name a:hover{
+                background-color: yellowgreen;
+                color: white;
+              }
+
+              .navigation-wrapper.active{
+                height: 160px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              }
+
+              .links.display {
+                width: 100%;
+                height: 120px;
+                display: flex;
+                flex-direction: column;
+                
+              }
+
+              .group.alignGroup {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              }
+         
+              .link.refineSizes {
+                width: 100vw;
+                height: 40px;
+                display: flex;
+              }
+    }
+
+    
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+            <div class="navigation-wrapper">
+                      <div class="logo ">
+                                <div class="toggle">
+                                      <a href="#" id="navLink"><i class="fas fa-hamburger">
+                                      </i></a>
+                                </div>
+                                
+                                <div class="name">
+                                      <a href="#" class="decprops">MyName</a>
+                                </div>
+                                
+                      </div>
+                      <div class="links">
+                          <div class="group">
+                                <div class="link"><a href="#" class="decprops">Link1</a></div>
+                                <div class="link"><a href="#" class="decprops">Link2</a></div>
+                          </div>
+                          <div class="link"><a href="#" class="decprops">Link3</a></div>
+                      </div>
+            </div>
+            <div class="body-wrapper"></div>
+  </div>
+</body>
+<script>
+  const navLink = document.getElementById("navLink");
+  navLink.addEventListener('click',(e) => {
+    navLink.parentElement.parentElement.parentElement.classList.toggle('active');
+    document.querySelector('.links').classList.toggle('display');
+    document.querySelector('.group').classList.toggle('alignGroup');
+    document.querySelectorAll('.link')[0].classList.toggle('refineSizes');
+    document.querySelectorAll('.link')[1].classList.toggle('refineSizes');
+    document.querySelectorAll('.link')[2].classList.toggle('refineSizes');
+    // console.log(document.querySelectorAll('.link')[0]);
+    
+  });
+</script>
+</html>
